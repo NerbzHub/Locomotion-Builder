@@ -1,14 +1,11 @@
 # Changelog
 
-## B03-S004 — Logging Framework
+## B03-S005 — Job Framework
 
 ### Added
-- Structured logger
-- Log levels
-- Log entry model
-
-### Changed
-- Application startup uses Logger
+- Abstract Job base class
+- JobStatus enum
+- Standard execute() workflow
 
 ### Validation
 Passed
