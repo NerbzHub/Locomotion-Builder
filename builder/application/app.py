@@ -1,29 +1,28 @@
 """
-Sprint B03-S006 — Application Lifecycle
+Sprint B03-S007 — Application Lifecycle + UI Shell
 """
-
 from builder.shared.config import ApplicationSettings
 from builder.shared.logger import Logger
-
+from builder.ui.console import ConsoleUI
 
 class Application:
     def __init__(self):
-        self.settings = ApplicationSettings()
-        self.logger = Logger()
+        self.settings=ApplicationSettings()
+        self.logger=Logger()
+        self.ui=ConsoleUI()
 
-    def launch(self) -> None:
+    def launch(self):
         self.logger.info("Launching application")
 
-    def initialise(self) -> None:
+    def initialise(self):
         self.logger.info("Initialising application")
+        self.ui.render()
 
-    def shutdown(self) -> None:
+    def shutdown(self):
         self.logger.info("Shutting down application")
 
-    def run(self) -> None:
+    def run(self):
         self.launch()
         self.initialise()
-        self.logger.info(
-            f"{self.settings.application_name} v{self.settings.version}"
-        )
+        self.logger.info(f"{self.settings.application_name} v{self.settings.version}")
         self.shutdown()

@@ -1,6 +1,3 @@
-# B03-S006 Release Notes
+# B03-S007 Release Notes
 
-Implements the conceptual application lifecycle only.
-
-No workspace loading, configuration changes, Job execution,
-or persistence has been introduced.
+Introduces the first engineering console shell only. No status, progress or navigation has been added.

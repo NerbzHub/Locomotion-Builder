@@ -1,11 +1,13 @@
 # Changelog
 
-## B03-S006 — Application Lifecycle
+## B03-S007 — UI Shell
 
 ### Added
-- Explicit launch lifecycle
-- Explicit initialise lifecycle
-- Explicit shutdown lifecycle
+- ConsoleUI shell
+- Initial engineering console layout
+
+### Changed
+- Application initialises the UI shell
 
 ### Validation
 Passed
