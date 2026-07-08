@@ -1,5 +1,5 @@
-Checkpoint:
-v0.1.0-B03-S005-Job-Framework
+Checkpoint
+v0.1.0-B03-S006-Application-Lifecycle
 
-Commit:
-feat(builder): implement B03-S005 job framework
+Commit
+feat(builder): implement B03-S006 application lifecycle

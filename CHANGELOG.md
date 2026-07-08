@@ -1,11 +1,11 @@
 # Changelog
 
-## B03-S005 — Job Framework
+## B03-S006 — Application Lifecycle
 
 ### Added
-- Abstract Job base class
-- JobStatus enum
-- Standard execute() workflow
+- Explicit launch lifecycle
+- Explicit initialise lifecycle
+- Explicit shutdown lifecycle
 
 ### Validation
 Passed

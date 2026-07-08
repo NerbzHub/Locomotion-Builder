@@ -1,3 +1,6 @@
-# B03-S005 Release Notes
+# B03-S006 Release Notes
 
-Introduces the foundational Job abstraction only. No concrete jobs or scheduling have been implemented.
+Implements the conceptual application lifecycle only.
+
+No workspace loading, configuration changes, Job execution,
+or persistence has been introduced.
