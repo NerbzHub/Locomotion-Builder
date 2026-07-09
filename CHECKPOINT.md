@@ -1,2 +1,1 @@
-# Checkpoint
-Checkpoint after Sprint B03-S011.
+builder-b03-s012-workspace-creation

@@ -1,2 +1,1 @@
-# Release Notes
-Introduces the Workspace domain model.
+Workspace creation support added.
