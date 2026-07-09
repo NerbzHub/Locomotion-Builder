@@ -1,5 +1,5 @@
 Checkpoint
-v0.1.0-B03-S007-UI-Shell
+v0.1.0-B03-S008-Status-System
 
 Commit
-feat(builder): implement B03-S007 UI shell
+feat(builder): implement B03-S008 status system

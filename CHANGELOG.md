@@ -1,13 +1,10 @@
 # Changelog
 
-## B03-S007 — UI Shell
+## B03-S008 — Status System
 
 ### Added
-- ConsoleUI shell
-- Initial engineering console layout
-
-### Changed
-- Application initialises the UI shell
+- StatusPanel
+- Application status display
 
 ### Validation
 Passed
