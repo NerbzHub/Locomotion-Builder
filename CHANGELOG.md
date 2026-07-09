@@ -1,10 +1,13 @@
 # Changelog
 
-## B03-S008 — Status System
+## B03-S009 — Progress Framework
 
 ### Added
-- StatusPanel
-- Application status display
+- ProgressPanel
+- Basic progress display
+
+### Changed
+- Application updates progress during lifecycle
 
 ### Validation
 Passed

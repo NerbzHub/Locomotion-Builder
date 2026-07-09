@@ -1,5 +1,5 @@
 Checkpoint
-v0.1.0-B03-S008-Status-System
+v0.1.0-B03-S009-Progress-Framework
 
 Commit
-feat(builder): implement B03-S008 status system
+feat(builder): implement B03-S009 progress framework
