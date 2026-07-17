@@ -1,3 +1,9 @@
+from .loading import (
+    DocumentLoadingError,
+    LoadBookDocumentJob,
+    LoadedBook,
+    load_book_document,
+)
 from .recognition import (
     BookRecognitionError,
     EngineeringBook,
@@ -7,7 +13,11 @@ from .recognition import (
 
 __all__ = [
     "BookRecognitionError",
+    "DocumentLoadingError",
     "EngineeringBook",
+    "LoadBookDocumentJob",
+    "LoadedBook",
     "RecogniseBooksJob",
+    "load_book_document",
     "recognise_engineering_books",
 ]
