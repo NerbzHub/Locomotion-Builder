@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Optional
 
+from .checkpoint import WorkspaceCheckpoints
 from .history import WorkspaceHistory
 from .settings import WorkspaceSettings
 
@@ -28,3 +29,6 @@ class Workspace:
     validation_status: Optional[str] = None
     settings: WorkspaceSettings = field(default_factory=WorkspaceSettings)
     history: WorkspaceHistory = field(default_factory=WorkspaceHistory)
+    checkpoints: WorkspaceCheckpoints = field(
+        default_factory=WorkspaceCheckpoints
+    )

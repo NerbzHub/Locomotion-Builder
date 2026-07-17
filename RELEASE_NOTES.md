@@ -1,1 +1,1 @@
-Append-only Workspace history recording added.
+Immutable Workspace checkpoint metadata added.

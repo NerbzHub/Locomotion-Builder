@@ -1,3 +1,4 @@
+from .checkpoint import WorkspaceCheckpoint, WorkspaceCheckpoints
 from .history import (
     HistoryEntry,
     RecordHistoryJob,
@@ -31,6 +32,8 @@ __all__ = [
     "SetWorkspaceSettingJob",
     "SettingValue",
     "Workspace",
+    "WorkspaceCheckpoint",
+    "WorkspaceCheckpoints",
     "WorkspaceHistory",
     "WorkspaceLoadError",
     "WorkspaceRecoveryError",

@@ -8,6 +8,7 @@ from typing import Any
 
 from builder.jobs.job import Job
 
+from .checkpoint import WorkspaceCheckpoint, WorkspaceCheckpoints
 from .history import HistoryEntry, WorkspaceHistory
 from .model import Workspace
 from .settings import WorkspaceSettings
@@ -60,6 +61,7 @@ def _read_workspace(path: Path) -> Workspace:
         "version",
     }
     optional_fields = {
+        "checkpoints",
         "completed_sprints",
         "current_job",
         "history",
@@ -84,6 +86,7 @@ def _read_workspace(path: Path) -> Workspace:
     project_name = _require_string(document, "project_name")
     created_at_value = _require_string(document, "created_at")
     active_sprint = _require_optional_string(document, "active_sprint")
+    checkpoints = _require_checkpoints(document)
     completed_sprints = _require_string_list(document, "completed_sprints")
     current_job = _require_optional_string(document, "current_job")
     history = _require_history(document)
@@ -103,6 +106,7 @@ def _read_workspace(path: Path) -> Workspace:
         project_name=project_name,
         created_at=created_at,
         active_sprint=active_sprint,
+        checkpoints=checkpoints,
         completed_sprints=completed_sprints,
         current_job=current_job,
         history=history,
@@ -195,3 +199,52 @@ def _require_history(document: dict[str, Any]) -> WorkspaceHistory:
         return WorkspaceHistory(entries)
     except (TypeError, ValueError) as error:
         raise WorkspaceLoadError(f"Invalid Workspace history: {error}") from error
+
+
+def _require_checkpoints(document: dict[str, Any]) -> WorkspaceCheckpoints:
+    value = document.get("checkpoints", [])
+    if not isinstance(value, list):
+        raise WorkspaceLoadError("Workspace field 'checkpoints' must be a list")
+
+    checkpoints: list[WorkspaceCheckpoint] = []
+    expected_fields = {
+        "identifier",
+        "created_at",
+        "active_sprint",
+        "completed_sprints",
+        "validation_status",
+    }
+    for index, checkpoint_document in enumerate(value):
+        if not isinstance(checkpoint_document, dict):
+            raise WorkspaceLoadError(
+                f"Workspace checkpoint {index} must be an object"
+            )
+        if set(checkpoint_document) != expected_fields:
+            raise WorkspaceLoadError(
+                f"Workspace checkpoint {index} has invalid fields"
+            )
+
+        try:
+            created_at = datetime.fromisoformat(
+                checkpoint_document["created_at"]
+            )
+            checkpoints.append(
+                WorkspaceCheckpoint(
+                    identifier=checkpoint_document["identifier"],
+                    created_at=created_at,
+                    active_sprint=checkpoint_document["active_sprint"],
+                    completed_sprints=checkpoint_document["completed_sprints"],
+                    validation_status=checkpoint_document["validation_status"],
+                )
+            )
+        except (TypeError, ValueError) as error:
+            raise WorkspaceLoadError(
+                f"Invalid Workspace checkpoint {index}: {error}"
+            ) from error
+
+    try:
+        return WorkspaceCheckpoints(checkpoints)
+    except (TypeError, ValueError) as error:
+        raise WorkspaceLoadError(
+            f"Invalid Workspace checkpoints: {error}"
+        ) from error

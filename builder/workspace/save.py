@@ -39,6 +39,16 @@ def _write_workspace(workspace: Workspace, path: Path) -> None:
         "project_name": workspace.project_name,
         "created_at": workspace.created_at.isoformat(),
         "active_sprint": workspace.active_sprint,
+        "checkpoints": [
+            {
+                "identifier": checkpoint.identifier,
+                "created_at": checkpoint.created_at.isoformat(),
+                "active_sprint": checkpoint.active_sprint,
+                "completed_sprints": list(checkpoint.completed_sprints),
+                "validation_status": checkpoint.validation_status,
+            }
+            for checkpoint in workspace.checkpoints.checkpoints
+        ],
         "completed_sprints": workspace.completed_sprints,
         "current_job": workspace.current_job,
         "history": [
