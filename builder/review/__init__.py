@@ -7,11 +7,19 @@ from .engineering import (
     ReviewEngineeringJob,
     review_engineering,
 )
+from .documentation import (
+    DocumentationReview,
+    ReviewDocumentationJob,
+    review_documentation,
+)
 
 __all__ = [
     "EngineeringReview",
+    "DocumentationReview",
     "ReviewEngineeringJob",
+    "ReviewDocumentationJob",
     "ReviewFinding",
     "ReviewResult",
     "review_engineering",
+    "review_documentation",
 ]
