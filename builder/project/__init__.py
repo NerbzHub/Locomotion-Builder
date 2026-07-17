@@ -20,6 +20,11 @@ from .overview import (
     ProjectOverview,
     generate_project_overview,
 )
+from .report import (
+    DiscoveryReport,
+    GenerateDiscoveryReportJob,
+    generate_discovery_report,
+)
 from .registration import (
     PROJECT_REGISTRATION_FILENAME,
     ProjectRegistration,
@@ -40,7 +45,9 @@ __all__ = [
     "DiscoverProjectsJob",
     "DiscoverDocumentationJob",
     "DiscoverSourcesJob",
+    "DiscoveryReport",
     "GenerateProjectOverviewJob",
+    "GenerateDiscoveryReportJob",
     "LoadProjectJob",
     "PROJECT_REGISTRATION_FILENAME",
     "ProjectDiscoveryError",
@@ -59,6 +66,7 @@ __all__ = [
     "discover_implementation_sources",
     "discover_projects",
     "generate_project_overview",
+    "generate_discovery_report",
     "load_project_metadata",
     "recognise_project",
     "register_project",
