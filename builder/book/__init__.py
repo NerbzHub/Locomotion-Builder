@@ -16,6 +16,12 @@ from .recognition import (
     RecogniseBooksJob,
     recognise_engineering_books,
 )
+from .progress import (
+    ConstructionProgress,
+    ConstructionProgressError,
+    DetermineConstructionProgressJob,
+    determine_construction_progress,
+)
 from .structure import (
     DocumentSection,
     DocumentStructure,
@@ -38,6 +44,9 @@ __all__ = [
     "DocumentSection",
     "DocumentStructure",
     "ConstructionSprint",
+    "ConstructionProgress",
+    "ConstructionProgressError",
+    "DetermineConstructionProgressJob",
     "DiscoverSprintsJob",
     "EngineeringBook",
     "LoadBookDocumentJob",
@@ -48,6 +57,7 @@ __all__ = [
     "StructureParsingError",
     "SprintDiscoveryError",
     "load_book_document",
+    "determine_construction_progress",
     "recognise_conceptual_dependencies",
     "parse_document_structure",
     "discover_construction_sprints",
