@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0 — Workspace Persistence
+
+### Added
+- Workspace model, creation, loading, and atomic saving
+- Interrupted-save recovery
+- Persistent construction state and Workspace settings
+- Append-only engineering history
+- Immutable Workspace checkpoint metadata
+
+### Validation
+- Workspace persistence and recovery passed
+
 ## B03-S009 — Progress Framework
 
 ### Added

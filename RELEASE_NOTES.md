@@ -1,1 +1,1 @@
-Immutable Workspace checkpoint metadata added.
+Workspace Persistence v0.2.0 validation completed.
