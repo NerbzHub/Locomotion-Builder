@@ -26,6 +26,11 @@ from .settings import (
     remove_workspace_setting,
     set_workspace_setting,
 )
+from .validation import (
+    ProjectValidationResult,
+    ValidateProjectJob,
+    validate_project,
+)
 
 __all__ = [
     "HistoryEntry",
@@ -36,6 +41,7 @@ __all__ = [
     "RemoveWorkspaceSettingJob",
     "SaveWorkspaceJob",
     "SetWorkspaceSettingJob",
+    "ValidateProjectJob",
     "SettingValue",
     "Workspace",
     "WorkspaceAssociationError",
@@ -46,6 +52,7 @@ __all__ = [
     "WorkspaceRecoveryError",
     "WorkspaceSaveError",
     "WorkspaceSettings",
+    "ProjectValidationResult",
     "associate_project",
     "load_workspace",
     "recover_workspace",
@@ -53,4 +60,5 @@ __all__ = [
     "remove_workspace_setting",
     "save_workspace",
     "set_workspace_setting",
+    "validate_project",
 ]
