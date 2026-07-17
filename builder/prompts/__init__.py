@@ -3,6 +3,7 @@
 from .model import EngineeringPrompt, PromptGenerationError
 from .context import AssemblePromptContextJob, PromptContext, assemble_prompt_context
 from .generation import GenerateSprintPromptJob, generate_sprint_prompt
+from .review import PromptReview, ReviewPromptJob, review_prompt
 
 __all__ = [
     "AssemblePromptContextJob",
@@ -10,6 +11,9 @@ __all__ = [
     "GenerateSprintPromptJob",
     "PromptContext",
     "PromptGenerationError",
+    "PromptReview",
+    "ReviewPromptJob",
     "assemble_prompt_context",
     "generate_sprint_prompt",
+    "review_prompt",
 ]
