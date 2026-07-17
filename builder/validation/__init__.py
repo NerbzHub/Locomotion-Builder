@@ -15,19 +15,29 @@ from .report import (
     ValidationReport,
     generate_validation_report,
 )
+from .history import (
+    RecordValidationEventJob,
+    ValidationHistory,
+    ValidationHistoryEntry,
+    record_validation_event,
+)
 
 __all__ = [
     "CreateValidationResultJob",
     "GenerateValidationReportJob",
+    "RecordValidationEventJob",
     "ValidateConstructionJob",
     "ValidateDocumentationJob",
     "ValidateProjectStructureJob",
     "ValidationFinding",
+    "ValidationHistory",
+    "ValidationHistoryEntry",
     "ValidationResult",
     "ValidationReport",
     "ValidateWorkspaceJob",
     "create_validation_result",
     "generate_validation_report",
+    "record_validation_event",
     "validate_construction",
     "validate_documentation",
     "validate_project_structure",
