@@ -20,6 +20,11 @@ from .history import (
     RecordConstructionEventJob,
     record_construction_event,
 )
+from .lifecycle import (
+    LifecycleValidationResult,
+    ValidateConstructionLifecycleJob,
+    validate_construction_lifecycle,
+)
 from .progress import (
     ConstructionProgressUpdateError,
     UpdateConstructionProgressJob,
@@ -58,12 +63,14 @@ __all__ = [
     "JobExecutionError",
     "JobExecutionResult",
     "JobSchedulingError",
+    "LifecycleValidationResult",
     "RecordConstructionEventJob",
     "ScheduleConstructionJob",
     "SelectConstructionTargetJob",
     "ScheduledConstructionJob",
     "SprintSelectionError",
     "UpdateConstructionProgressJob",
+    "ValidateConstructionLifecycleJob",
     "create_construction_controller",
     "create_construction_checkpoint",
     "execute_scheduled_job",
@@ -72,4 +79,5 @@ __all__ = [
     "select_construction_target",
     "schedule_construction_job",
     "update_construction_progress",
+    "validate_construction_lifecycle",
 ]
