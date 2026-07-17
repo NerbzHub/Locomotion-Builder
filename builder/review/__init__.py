@@ -14,6 +14,7 @@ from .documentation import (
 )
 from .ux import ReviewWorkflowJob, WorkflowReview, review_workflow
 from .stability import ReviewStabilityJob, StabilityReview, review_stability
+from .performance import ReviewPerformanceJob, PerformanceReview, review_performance
 
 __all__ = [
     "EngineeringReview",
@@ -22,12 +23,15 @@ __all__ = [
     "ReviewDocumentationJob",
     "ReviewWorkflowJob",
     "ReviewStabilityJob",
+    "ReviewPerformanceJob",
     "ReviewFinding",
     "ReviewResult",
+    "PerformanceReview",
     "StabilityReview",
     "WorkflowReview",
     "review_engineering",
     "review_documentation",
     "review_workflow",
     "review_stability",
+    "review_performance",
 ]
