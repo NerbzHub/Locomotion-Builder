@@ -16,6 +16,11 @@ from .recognition import (
     RecogniseBooksJob,
     recognise_engineering_books,
 )
+from .report import (
+    GenerateParsingReportJob,
+    ParsingReport,
+    generate_parsing_report,
+)
 from .progress import (
     ConstructionProgress,
     ConstructionProgressError,
@@ -49,14 +54,17 @@ __all__ = [
     "DetermineConstructionProgressJob",
     "DiscoverSprintsJob",
     "EngineeringBook",
+    "GenerateParsingReportJob",
     "LoadBookDocumentJob",
     "LoadedBook",
     "ParseDocumentStructureJob",
+    "ParsingReport",
     "RecogniseBooksJob",
     "RecogniseDependenciesJob",
     "StructureParsingError",
     "SprintDiscoveryError",
     "load_book_document",
+    "generate_parsing_report",
     "determine_construction_progress",
     "recognise_conceptual_dependencies",
     "parse_document_structure",
