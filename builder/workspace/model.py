@@ -4,6 +4,8 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Optional
 
+from .settings import WorkspaceSettings
+
 
 def _utc_now() -> datetime:
     return datetime.now(timezone.utc)
@@ -23,3 +25,4 @@ class Workspace:
     completed_sprints: list[str] = field(default_factory=list)
     current_job: Optional[str] = None
     validation_status: Optional[str] = None
+    settings: WorkspaceSettings = field(default_factory=WorkspaceSettings)

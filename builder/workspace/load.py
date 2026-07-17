@@ -9,6 +9,7 @@ from typing import Any
 from builder.jobs.job import Job
 
 from .model import Workspace
+from .settings import WorkspaceSettings
 
 
 class WorkspaceLoadError(ValueError):
@@ -60,6 +61,7 @@ def _read_workspace(path: Path) -> Workspace:
     optional_fields = {
         "completed_sprints",
         "current_job",
+        "settings",
         "validation_status",
     }
     actual_fields = set(document)
@@ -82,6 +84,7 @@ def _read_workspace(path: Path) -> Workspace:
     active_sprint = _require_optional_string(document, "active_sprint")
     completed_sprints = _require_string_list(document, "completed_sprints")
     current_job = _require_optional_string(document, "current_job")
+    settings = _require_settings(document)
     validation_status = _require_optional_string(document, "validation_status")
     version = _require_string(document, "version")
 
@@ -99,6 +102,7 @@ def _read_workspace(path: Path) -> Workspace:
         active_sprint=active_sprint,
         completed_sprints=completed_sprints,
         current_job=current_job,
+        settings=settings,
         validation_status=validation_status,
         version=version,
     )
@@ -137,3 +141,14 @@ def _require_string_list(
             f"Workspace field '{field_name}' must be a list of strings"
         )
     return value
+
+
+def _require_settings(document: dict[str, Any]) -> WorkspaceSettings:
+    value = document.get("settings", {})
+    if not isinstance(value, dict):
+        raise WorkspaceLoadError("Workspace field 'settings' must be an object")
+
+    try:
+        return WorkspaceSettings(value)
+    except (TypeError, ValueError) as error:
+        raise WorkspaceLoadError(f"Invalid Workspace settings: {error}") from error
