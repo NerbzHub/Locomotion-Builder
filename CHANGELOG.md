@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0 — Project Discovery
+
+### Added
+- Builder-managed project registration, discovery, and metadata loading
+- Project overview, documentation discovery, and source discovery
+- Workspace project association, project validation, and discovery reporting
+
+### Validation
+- Project Discovery v0.3.0 acceptance validation passed
+
 ## 0.2.0 — Workspace Persistence
 
 ### Added

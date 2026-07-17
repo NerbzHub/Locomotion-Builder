@@ -1,1 +1,1 @@
-builder-b03-s021-project-registration
+builder-v0.3.0-project-discovery

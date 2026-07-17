@@ -1,1 +1,1 @@
-Builder-managed project registration and recognition added.
+Project Discovery v0.3.0 validation completed.
