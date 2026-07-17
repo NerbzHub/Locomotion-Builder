@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import stat
 import tempfile
 from dataclasses import dataclass
 from os import PathLike
@@ -138,8 +139,18 @@ def _recognise_project(path: Path) -> ProjectRegistration | None:
 
 def _read_registration(root: Path, marker_path: Path) -> ProjectRegistration:
     try:
-        with marker_path.open("r", encoding="utf-8") as marker_file:
+        descriptor = os.open(
+            marker_path,
+            os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0),
+        )
+        with os.fdopen(descriptor, "r", encoding="utf-8") as marker_file:
+            if not stat.S_ISREG(os.fstat(marker_file.fileno()).st_mode):
+                raise ProjectRegistrationError(
+                    f"Project registration '{marker_path}' must be a regular file"
+                )
             document = json.load(marker_file)
+    except ProjectRegistrationError:
+        raise
     except (OSError, json.JSONDecodeError) as error:
         raise ProjectRegistrationError(
             f"Unable to read project registration '{marker_path}': {error}"
