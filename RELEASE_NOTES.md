@@ -1,1 +1,1 @@
-Workspace creation support added.
+Workspace loading support added.
