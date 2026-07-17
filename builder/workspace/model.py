@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Optional
 
 from .checkpoint import WorkspaceCheckpoints
@@ -21,6 +22,7 @@ class Workspace:
     """
     name: str
     project_name: str
+    project_root: Path | None = None
     created_at: datetime = field(default_factory=_utc_now)
     active_sprint: Optional[str] = None
     version: str = "0.2.0"

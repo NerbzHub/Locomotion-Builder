@@ -1,3 +1,8 @@
+from .association import (
+    AssociateProjectJob,
+    WorkspaceAssociationError,
+    associate_project,
+)
 from .checkpoint import WorkspaceCheckpoint, WorkspaceCheckpoints
 from .history import (
     HistoryEntry,
@@ -24,6 +29,7 @@ from .settings import (
 
 __all__ = [
     "HistoryEntry",
+    "AssociateProjectJob",
     "LoadWorkspaceJob",
     "RecordHistoryJob",
     "RecoverWorkspaceJob",
@@ -32,6 +38,7 @@ __all__ = [
     "SetWorkspaceSettingJob",
     "SettingValue",
     "Workspace",
+    "WorkspaceAssociationError",
     "WorkspaceCheckpoint",
     "WorkspaceCheckpoints",
     "WorkspaceHistory",
@@ -39,6 +46,7 @@ __all__ = [
     "WorkspaceRecoveryError",
     "WorkspaceSaveError",
     "WorkspaceSettings",
+    "associate_project",
     "load_workspace",
     "recover_workspace",
     "record_history",

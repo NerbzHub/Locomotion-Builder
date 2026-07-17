@@ -37,6 +37,11 @@ def _write_workspace(workspace: Workspace, path: Path) -> None:
     document = {
         "name": workspace.name,
         "project_name": workspace.project_name,
+        "project_root": (
+            str(workspace.project_root)
+            if workspace.project_root is not None
+            else None
+        ),
         "created_at": workspace.created_at.isoformat(),
         "active_sprint": workspace.active_sprint,
         "checkpoints": [

@@ -65,6 +65,7 @@ def _read_workspace(path: Path) -> Workspace:
         "completed_sprints",
         "current_job",
         "history",
+        "project_root",
         "settings",
         "validation_status",
     }
@@ -84,6 +85,7 @@ def _read_workspace(path: Path) -> Workspace:
 
     name = _require_string(document, "name")
     project_name = _require_string(document, "project_name")
+    project_root = _require_optional_path(document, "project_root")
     created_at_value = _require_string(document, "created_at")
     active_sprint = _require_optional_string(document, "active_sprint")
     checkpoints = _require_checkpoints(document)
@@ -104,6 +106,7 @@ def _read_workspace(path: Path) -> Workspace:
     return Workspace(
         name=name,
         project_name=project_name,
+        project_root=project_root,
         created_at=created_at,
         active_sprint=active_sprint,
         checkpoints=checkpoints,
@@ -135,6 +138,26 @@ def _require_optional_string(
             f"Workspace field '{field_name}' must be a string or null"
         )
     return value
+
+
+def _require_optional_path(
+    document: dict[str, Any],
+    field_name: str,
+) -> Path | None:
+    value = document.get(field_name)
+    if value is None:
+        return None
+    if not isinstance(value, str):
+        raise WorkspaceLoadError(
+            f"Workspace field '{field_name}' must be a string or null"
+        )
+
+    path = Path(value)
+    if not path.is_absolute():
+        raise WorkspaceLoadError(
+            f"Workspace field '{field_name}' must be an absolute path"
+        )
+    return path
 
 
 def _require_string_list(
