@@ -1,1 +1,1 @@
-Workspace saving support added.
+Workspace recovery support added.
