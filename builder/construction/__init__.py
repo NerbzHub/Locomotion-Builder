@@ -4,6 +4,11 @@ from .controller import (
     CreateConstructionControllerJob,
     create_construction_controller,
 )
+from .checkpoint import (
+    ConstructionCheckpointError,
+    CreateConstructionCheckpointJob,
+    create_construction_checkpoint,
+)
 from .execution import (
     ExecuteScheduledJobJob,
     JobExecutionError,
@@ -31,9 +36,11 @@ from .scheduling import (
 __all__ = [
     "ConstructionController",
     "ConstructionControllerError",
+    "ConstructionCheckpointError",
     "ConstructionProgressUpdateError",
     "ConstructionTarget",
     "CreateConstructionControllerJob",
+    "CreateConstructionCheckpointJob",
     "ExecuteScheduledJobJob",
     "JobExecutionError",
     "JobExecutionResult",
@@ -44,6 +51,7 @@ __all__ = [
     "SprintSelectionError",
     "UpdateConstructionProgressJob",
     "create_construction_controller",
+    "create_construction_checkpoint",
     "execute_scheduled_job",
     "select_construction_target",
     "schedule_construction_job",
