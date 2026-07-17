@@ -13,6 +13,7 @@ from .documentation import (
     review_documentation,
 )
 from .ux import ReviewWorkflowJob, WorkflowReview, review_workflow
+from .stability import ReviewStabilityJob, StabilityReview, review_stability
 
 __all__ = [
     "EngineeringReview",
@@ -20,10 +21,13 @@ __all__ = [
     "ReviewEngineeringJob",
     "ReviewDocumentationJob",
     "ReviewWorkflowJob",
+    "ReviewStabilityJob",
     "ReviewFinding",
     "ReviewResult",
+    "StabilityReview",
     "WorkflowReview",
     "review_engineering",
     "review_documentation",
     "review_workflow",
+    "review_stability",
 ]
