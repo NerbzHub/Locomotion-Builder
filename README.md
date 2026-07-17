@@ -2,7 +2,8 @@
 
 Deterministic engineering orchestration for recoverable software construction.
 
-Current version: 0.4.0
+Current version: 0.5.0
 
-Workspace persistence, Builder-managed project discovery, and structured Book
-parsing are available, including Sprint dependencies and parser validation.
+Construction Manager lifecycle coordination is available, including Sprint
+selection, Job execution, progress updates, checkpoints, history, reporting,
+and lifecycle validation.

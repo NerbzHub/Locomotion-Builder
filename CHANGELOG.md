@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 — Construction Manager
+
+### Added
+- Construction controller, ordered Sprint selection, Job scheduling, and execution
+- Progress updates, stable recovery checkpoints, and append-only event history
+- Construction state reports and lifecycle validation
+
+### Validation
+- Construction Manager v0.5.0 acceptance validation passed
+
 ## 0.4.0 — Book Parser
 
 ### Added

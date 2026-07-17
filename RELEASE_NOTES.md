@@ -1,1 +1,1 @@
-Book Parser v0.4.0 validation completed.
+Construction Manager v0.5.0 validation completed.
