@@ -46,6 +46,11 @@ from .sprints import (
     SprintDiscoveryError,
     discover_construction_sprints,
 )
+from .validation import (
+    ParserValidationResult,
+    ValidateParsedConstructionStateJob,
+    validate_parsed_construction_state,
+)
 
 __all__ = [
     "BookRecognitionError",
@@ -66,17 +71,20 @@ __all__ = [
     "ParsingIssue",
     "ParsingIssueReport",
     "ParseDocumentStructureJob",
+    "ParserValidationResult",
     "ParsingReport",
     "RecogniseBooksJob",
     "RecogniseDependenciesJob",
     "ReportParsingIssuesJob",
     "StructureParsingError",
     "SprintDiscoveryError",
+    "ValidateParsedConstructionStateJob",
     "load_book_document",
     "generate_parsing_report",
     "determine_construction_progress",
     "recognise_conceptual_dependencies",
     "report_parsing_issues",
+    "validate_parsed_construction_state",
     "parse_document_structure",
     "discover_construction_sprints",
     "recognise_engineering_books",
