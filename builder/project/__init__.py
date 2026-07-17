@@ -29,10 +29,17 @@ from .registration import (
     recognise_project,
     register_project,
 )
+from .source import (
+    DiscoverSourcesJob,
+    ImplementationSource,
+    SourceDiscoveryError,
+    discover_implementation_sources,
+)
 
 __all__ = [
     "DiscoverProjectsJob",
     "DiscoverDocumentationJob",
+    "DiscoverSourcesJob",
     "GenerateProjectOverviewJob",
     "LoadProjectJob",
     "PROJECT_REGISTRATION_FILENAME",
@@ -46,7 +53,10 @@ __all__ = [
     "RegisterProjectJob",
     "DocumentationDiscoveryError",
     "EngineeringDocument",
+    "ImplementationSource",
+    "SourceDiscoveryError",
     "discover_engineering_documents",
+    "discover_implementation_sources",
     "discover_projects",
     "generate_project_overview",
     "load_project_metadata",
