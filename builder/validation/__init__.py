@@ -26,13 +26,16 @@ from .dashboard import (
     ValidationDashboard,
     generate_validation_dashboard,
 )
+from .final import FinalValidationResult, ValidateBuilderJob, validate_builder
 
 __all__ = [
     "CreateValidationResultJob",
+    "FinalValidationResult",
     "GenerateValidationReportJob",
     "GenerateValidationDashboardJob",
     "RecordValidationEventJob",
     "ValidateConstructionJob",
+    "ValidateBuilderJob",
     "ValidateDocumentationJob",
     "ValidateProjectStructureJob",
     "ValidationFinding",
@@ -47,6 +50,7 @@ __all__ = [
     "generate_validation_dashboard",
     "record_validation_event",
     "validate_construction",
+    "validate_builder",
     "validate_documentation",
     "validate_project_structure",
     "validate_workspace",
