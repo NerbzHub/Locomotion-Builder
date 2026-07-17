@@ -21,15 +21,22 @@ from .history import (
     ValidationHistoryEntry,
     record_validation_event,
 )
+from .dashboard import (
+    GenerateValidationDashboardJob,
+    ValidationDashboard,
+    generate_validation_dashboard,
+)
 
 __all__ = [
     "CreateValidationResultJob",
     "GenerateValidationReportJob",
+    "GenerateValidationDashboardJob",
     "RecordValidationEventJob",
     "ValidateConstructionJob",
     "ValidateDocumentationJob",
     "ValidateProjectStructureJob",
     "ValidationFinding",
+    "ValidationDashboard",
     "ValidationHistory",
     "ValidationHistoryEntry",
     "ValidationResult",
@@ -37,6 +44,7 @@ __all__ = [
     "ValidateWorkspaceJob",
     "create_validation_result",
     "generate_validation_report",
+    "generate_validation_dashboard",
     "record_validation_event",
     "validate_construction",
     "validate_documentation",
