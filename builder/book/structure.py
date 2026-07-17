@@ -9,7 +9,9 @@ from builder.jobs.job import Job
 
 from .loading import LoadedBook
 
-_FENCE = re.compile(r"^(?: {0,3})(?P<marker>`{3,}|~{3,})")
+_FENCE = re.compile(
+    r"^(?: {0,3})(?P<marker>`{3,}|~{3,})(?P<remainder>.*)$"
+)
 _HEADING = re.compile(
     r"^(?: {0,3})(?P<markers>#{1,6})[ \t]+(?P<title>.*?)(?:[ \t]+#+[ \t]*)?$"
 )
@@ -85,7 +87,11 @@ def _parse_document_structure(document: LoadedBook) -> DocumentStructure:
             marker = fence_match.group("marker")
             if fence_marker is None:
                 fence_marker = marker
-            elif marker[0] == fence_marker[0] and len(marker) >= len(fence_marker):
+            elif (
+                marker[0] == fence_marker[0]
+                and len(marker) >= len(fence_marker)
+                and not fence_match.group("remainder").strip()
+            ):
                 fence_marker = None
             continue
 

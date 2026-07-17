@@ -45,7 +45,7 @@ def _read_workspace(path: Path) -> Workspace:
     try:
         with path.open("r", encoding="utf-8") as workspace_file:
             document = json.load(workspace_file)
-    except (OSError, json.JSONDecodeError) as error:
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
         raise WorkspaceLoadError(
             f"Unable to load workspace '{path}': {error}"
         ) from error
