@@ -11,6 +11,7 @@ from .history import (
     record_prompt_history,
 )
 from .review import PromptReview, ReviewPromptJob, review_prompt
+from .report import GeneratePromptReportJob, PromptReport, generate_prompt_report
 from .templates import DEFAULT_PROMPT_TEMPLATE, PromptTemplate
 from .validation import PromptValidationResult, ValidatePromptJob, validate_prompt
 
@@ -20,12 +21,14 @@ __all__ = [
     "EngineeringPrompt",
     "ExportPromptJob",
     "GenerateSprintPromptJob",
+    "GeneratePromptReportJob",
     "PromptContext",
     "PromptGenerationError",
     "PromptExportError",
     "PromptHistory",
     "PromptHistoryEntry",
     "PromptReview",
+    "PromptReport",
     "PromptTemplate",
     "PromptValidationResult",
     "RecordPromptHistoryJob",
@@ -34,6 +37,7 @@ __all__ = [
     "assemble_prompt_context",
     "export_prompt",
     "generate_sprint_prompt",
+    "generate_prompt_report",
     "review_prompt",
     "record_prompt_history",
     "validate_prompt",
