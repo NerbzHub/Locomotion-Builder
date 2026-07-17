@@ -4,6 +4,12 @@ from .controller import (
     CreateConstructionControllerJob,
     create_construction_controller,
 )
+from .execution import (
+    ExecuteScheduledJobJob,
+    JobExecutionError,
+    JobExecutionResult,
+    execute_scheduled_job,
+)
 from .selection import (
     ConstructionTarget,
     SelectConstructionTargetJob,
@@ -22,12 +28,16 @@ __all__ = [
     "ConstructionControllerError",
     "ConstructionTarget",
     "CreateConstructionControllerJob",
+    "ExecuteScheduledJobJob",
+    "JobExecutionError",
+    "JobExecutionResult",
     "JobSchedulingError",
     "ScheduleConstructionJob",
     "SelectConstructionTargetJob",
     "ScheduledConstructionJob",
     "SprintSelectionError",
     "create_construction_controller",
+    "execute_scheduled_job",
     "select_construction_target",
     "schedule_construction_job",
 ]
