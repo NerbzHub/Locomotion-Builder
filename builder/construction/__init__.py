@@ -15,6 +15,11 @@ from .execution import (
     JobExecutionResult,
     execute_scheduled_job,
 )
+from .history import (
+    ConstructionHistoryError,
+    RecordConstructionEventJob,
+    record_construction_event,
+)
 from .progress import (
     ConstructionProgressUpdateError,
     UpdateConstructionProgressJob,
@@ -38,6 +43,7 @@ __all__ = [
     "ConstructionControllerError",
     "ConstructionCheckpointError",
     "ConstructionProgressUpdateError",
+    "ConstructionHistoryError",
     "ConstructionTarget",
     "CreateConstructionControllerJob",
     "CreateConstructionCheckpointJob",
@@ -45,6 +51,7 @@ __all__ = [
     "JobExecutionError",
     "JobExecutionResult",
     "JobSchedulingError",
+    "RecordConstructionEventJob",
     "ScheduleConstructionJob",
     "SelectConstructionTargetJob",
     "ScheduledConstructionJob",
@@ -53,6 +60,7 @@ __all__ = [
     "create_construction_controller",
     "create_construction_checkpoint",
     "execute_scheduled_job",
+    "record_construction_event",
     "select_construction_target",
     "schedule_construction_job",
     "update_construction_progress",
