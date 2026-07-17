@@ -8,6 +8,7 @@ from typing import Any
 
 from builder.jobs.job import Job
 
+from .history import HistoryEntry, WorkspaceHistory
 from .model import Workspace
 from .settings import WorkspaceSettings
 
@@ -61,6 +62,7 @@ def _read_workspace(path: Path) -> Workspace:
     optional_fields = {
         "completed_sprints",
         "current_job",
+        "history",
         "settings",
         "validation_status",
     }
@@ -84,6 +86,7 @@ def _read_workspace(path: Path) -> Workspace:
     active_sprint = _require_optional_string(document, "active_sprint")
     completed_sprints = _require_string_list(document, "completed_sprints")
     current_job = _require_optional_string(document, "current_job")
+    history = _require_history(document)
     settings = _require_settings(document)
     validation_status = _require_optional_string(document, "validation_status")
     version = _require_string(document, "version")
@@ -102,6 +105,7 @@ def _read_workspace(path: Path) -> Workspace:
         active_sprint=active_sprint,
         completed_sprints=completed_sprints,
         current_job=current_job,
+        history=history,
         settings=settings,
         validation_status=validation_status,
         version=version,
@@ -152,3 +156,42 @@ def _require_settings(document: dict[str, Any]) -> WorkspaceSettings:
         return WorkspaceSettings(value)
     except (TypeError, ValueError) as error:
         raise WorkspaceLoadError(f"Invalid Workspace settings: {error}") from error
+
+
+def _require_history(document: dict[str, Any]) -> WorkspaceHistory:
+    value = document.get("history", [])
+    if not isinstance(value, list):
+        raise WorkspaceLoadError("Workspace field 'history' must be a list")
+
+    entries: list[HistoryEntry] = []
+    expected_fields = {"timestamp", "description"}
+    for index, entry_document in enumerate(value):
+        if not isinstance(entry_document, dict):
+            raise WorkspaceLoadError(
+                f"Workspace history entry {index} must be an object"
+            )
+        if set(entry_document) != expected_fields:
+            raise WorkspaceLoadError(
+                f"Workspace history entry {index} must contain "
+                "timestamp and description"
+            )
+
+        timestamp_value = entry_document["timestamp"]
+        description = entry_document["description"]
+        if not isinstance(timestamp_value, str):
+            raise WorkspaceLoadError(
+                f"Workspace history entry {index} timestamp must be a string"
+            )
+
+        try:
+            timestamp = datetime.fromisoformat(timestamp_value)
+            entries.append(HistoryEntry(timestamp, description))
+        except (TypeError, ValueError) as error:
+            raise WorkspaceLoadError(
+                f"Invalid Workspace history entry {index}: {error}"
+            ) from error
+
+    try:
+        return WorkspaceHistory(entries)
+    except (TypeError, ValueError) as error:
+        raise WorkspaceLoadError(f"Invalid Workspace history: {error}") from error

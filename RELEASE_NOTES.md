@@ -1,1 +1,1 @@
-Workspace configuration management added.
+Append-only Workspace history recording added.

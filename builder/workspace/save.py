@@ -41,6 +41,13 @@ def _write_workspace(workspace: Workspace, path: Path) -> None:
         "active_sprint": workspace.active_sprint,
         "completed_sprints": workspace.completed_sprints,
         "current_job": workspace.current_job,
+        "history": [
+            {
+                "timestamp": entry.timestamp.isoformat(),
+                "description": entry.description,
+            }
+            for entry in workspace.history.entries
+        ],
         "settings": workspace.settings.as_dict(),
         "validation_status": workspace.validation_status,
         "version": workspace.version,

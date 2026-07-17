@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from typing import Optional
 
+from .history import WorkspaceHistory
 from .settings import WorkspaceSettings
 
 
@@ -26,3 +27,4 @@ class Workspace:
     current_job: Optional[str] = None
     validation_status: Optional[str] = None
     settings: WorkspaceSettings = field(default_factory=WorkspaceSettings)
+    history: WorkspaceHistory = field(default_factory=WorkspaceHistory)
