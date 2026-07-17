@@ -3,6 +3,12 @@ from .discovery import (
     ProjectDiscoveryError,
     discover_projects,
 )
+from .documentation import (
+    DiscoverDocumentationJob,
+    DocumentationDiscoveryError,
+    EngineeringDocument,
+    discover_engineering_documents,
+)
 from .loading import (
     LoadProjectJob,
     ProjectLoadingError,
@@ -26,6 +32,7 @@ from .registration import (
 
 __all__ = [
     "DiscoverProjectsJob",
+    "DiscoverDocumentationJob",
     "GenerateProjectOverviewJob",
     "LoadProjectJob",
     "PROJECT_REGISTRATION_FILENAME",
@@ -37,6 +44,9 @@ __all__ = [
     "ProjectRegistrationError",
     "RecogniseProjectJob",
     "RegisterProjectJob",
+    "DocumentationDiscoveryError",
+    "EngineeringDocument",
+    "discover_engineering_documents",
     "discover_projects",
     "generate_project_overview",
     "load_project_metadata",
