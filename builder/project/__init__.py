@@ -9,6 +9,11 @@ from .loading import (
     ProjectMetadata,
     load_project_metadata,
 )
+from .overview import (
+    GenerateProjectOverviewJob,
+    ProjectOverview,
+    generate_project_overview,
+)
 from .registration import (
     PROJECT_REGISTRATION_FILENAME,
     ProjectRegistration,
@@ -21,16 +26,19 @@ from .registration import (
 
 __all__ = [
     "DiscoverProjectsJob",
+    "GenerateProjectOverviewJob",
     "LoadProjectJob",
     "PROJECT_REGISTRATION_FILENAME",
     "ProjectDiscoveryError",
     "ProjectLoadingError",
     "ProjectMetadata",
+    "ProjectOverview",
     "ProjectRegistration",
     "ProjectRegistrationError",
     "RecogniseProjectJob",
     "RegisterProjectJob",
     "discover_projects",
+    "generate_project_overview",
     "load_project_metadata",
     "recognise_project",
     "register_project",
