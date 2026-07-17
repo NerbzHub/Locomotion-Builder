@@ -11,9 +11,11 @@ from .history import (
     record_prompt_history,
 )
 from .review import PromptReview, ReviewPromptJob, review_prompt
+from .templates import DEFAULT_PROMPT_TEMPLATE, PromptTemplate
 
 __all__ = [
     "AssemblePromptContextJob",
+    "DEFAULT_PROMPT_TEMPLATE",
     "EngineeringPrompt",
     "ExportPromptJob",
     "GenerateSprintPromptJob",
@@ -23,6 +25,7 @@ __all__ = [
     "PromptHistory",
     "PromptHistoryEntry",
     "PromptReview",
+    "PromptTemplate",
     "RecordPromptHistoryJob",
     "ReviewPromptJob",
     "assemble_prompt_context",

@@ -18,6 +18,7 @@ class EngineeringPrompt:
     sprint_name: str
     content: str
     created_at: datetime
+    template_name: str = "default"
 
     def __post_init__(self) -> None:
         if not isinstance(self.sprint_identifier, str) or not self.sprint_identifier:
@@ -26,6 +27,8 @@ class EngineeringPrompt:
             raise ValueError("Prompt Sprint names must be non-empty strings")
         if not isinstance(self.content, str) or not self.content.strip():
             raise ValueError("Prompt content must be non-empty text")
+        if not isinstance(self.template_name, str) or not self.template_name.strip():
+            raise ValueError("Prompt template names must be non-empty strings")
         if not isinstance(self.created_at, datetime):
             raise TypeError("Prompt creation times must be datetime values")
         if self.created_at.tzinfo is None or self.created_at.utcoffset() is None:
