@@ -1,1 +1,1 @@
-Project Discovery v0.3.0 validation completed.
+Book Parser v0.4.0 validation completed.

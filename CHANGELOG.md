@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 — Book Parser
+
+### Added
+- Engineering Book recognition and safe document loading
+- Document structure parsing and construction Sprint discovery
+- Dependency recognition, construction progress, parser reporting, and validation
+
+### Validation
+- Book Parser v0.4.0 acceptance validation passed
+
 ## 0.3.0 — Project Discovery
 
 ### Added

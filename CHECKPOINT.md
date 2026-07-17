@@ -1,1 +1,1 @@
-builder-v0.3.0-project-discovery
+builder-v0.4.0-book-parser
