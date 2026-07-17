@@ -10,6 +10,11 @@ from .execution import (
     JobExecutionResult,
     execute_scheduled_job,
 )
+from .progress import (
+    ConstructionProgressUpdateError,
+    UpdateConstructionProgressJob,
+    update_construction_progress,
+)
 from .selection import (
     ConstructionTarget,
     SelectConstructionTargetJob,
@@ -26,6 +31,7 @@ from .scheduling import (
 __all__ = [
     "ConstructionController",
     "ConstructionControllerError",
+    "ConstructionProgressUpdateError",
     "ConstructionTarget",
     "CreateConstructionControllerJob",
     "ExecuteScheduledJobJob",
@@ -36,8 +42,10 @@ __all__ = [
     "SelectConstructionTargetJob",
     "ScheduledConstructionJob",
     "SprintSelectionError",
+    "UpdateConstructionProgressJob",
     "create_construction_controller",
     "execute_scheduled_job",
     "select_construction_target",
     "schedule_construction_job",
+    "update_construction_progress",
 ]
