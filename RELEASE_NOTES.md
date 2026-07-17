@@ -1,1 +1,1 @@
-Workspace Persistence v0.2.0 validation completed.
+Builder-managed project registration and recognition added.
