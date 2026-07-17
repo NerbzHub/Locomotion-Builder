@@ -50,16 +50,21 @@ def _read_workspace(path: Path) -> Workspace:
     if not isinstance(document, dict):
         raise WorkspaceLoadError("Workspace document must contain a JSON object")
 
-    expected_fields = {
+    required_fields = {
         "name",
         "project_name",
         "created_at",
         "active_sprint",
         "version",
     }
+    optional_fields = {
+        "completed_sprints",
+        "current_job",
+        "validation_status",
+    }
     actual_fields = set(document)
-    missing_fields = expected_fields - actual_fields
-    unexpected_fields = actual_fields - expected_fields
+    missing_fields = required_fields - actual_fields
+    unexpected_fields = actual_fields - required_fields - optional_fields
 
     if missing_fields:
         missing = ", ".join(sorted(missing_fields))
@@ -74,13 +79,11 @@ def _read_workspace(path: Path) -> Workspace:
     name = _require_string(document, "name")
     project_name = _require_string(document, "project_name")
     created_at_value = _require_string(document, "created_at")
-    active_sprint = document["active_sprint"]
+    active_sprint = _require_optional_string(document, "active_sprint")
+    completed_sprints = _require_string_list(document, "completed_sprints")
+    current_job = _require_optional_string(document, "current_job")
+    validation_status = _require_optional_string(document, "validation_status")
     version = _require_string(document, "version")
-
-    if active_sprint is not None and not isinstance(active_sprint, str):
-        raise WorkspaceLoadError(
-            "Workspace field 'active_sprint' must be a string or null"
-        )
 
     try:
         created_at = datetime.fromisoformat(created_at_value)
@@ -94,6 +97,9 @@ def _read_workspace(path: Path) -> Workspace:
         project_name=project_name,
         created_at=created_at,
         active_sprint=active_sprint,
+        completed_sprints=completed_sprints,
+        current_job=current_job,
+        validation_status=validation_status,
         version=version,
     )
 
@@ -103,5 +109,31 @@ def _require_string(document: dict[str, Any], field_name: str) -> str:
     if not isinstance(value, str):
         raise WorkspaceLoadError(
             f"Workspace field '{field_name}' must be a string"
+        )
+    return value
+
+
+def _require_optional_string(
+    document: dict[str, Any],
+    field_name: str,
+) -> str | None:
+    value = document.get(field_name)
+    if value is not None and not isinstance(value, str):
+        raise WorkspaceLoadError(
+            f"Workspace field '{field_name}' must be a string or null"
+        )
+    return value
+
+
+def _require_string_list(
+    document: dict[str, Any],
+    field_name: str,
+) -> list[str]:
+    value = document.get(field_name, [])
+    if not isinstance(value, list) or not all(
+        isinstance(item, str) for item in value
+    ):
+        raise WorkspaceLoadError(
+            f"Workspace field '{field_name}' must be a list of strings"
         )
     return value

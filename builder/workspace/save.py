@@ -39,6 +39,9 @@ def _write_workspace(workspace: Workspace, path: Path) -> None:
         "project_name": workspace.project_name,
         "created_at": workspace.created_at.isoformat(),
         "active_sprint": workspace.active_sprint,
+        "completed_sprints": workspace.completed_sprints,
+        "current_job": workspace.current_job,
+        "validation_status": workspace.validation_status,
         "version": workspace.version,
     }
     temporary_path: Path | None = None
