@@ -1,18 +1,36 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Optional
+
+from .checkpoint import WorkspaceCheckpoints
+from .history import WorkspaceHistory
+from .settings import WorkspaceSettings
+
+
+def _utc_now() -> datetime:
+    return datetime.now(timezone.utc)
+
 
 @dataclass(slots=True)
 class Workspace:
     """Represents the active engineering workspace.
 
-    Sprint B03-S011 introduces only the domain model.
-    Persistence, loading and recovery are implemented in later sprints.
+    Construction progression is explicit and persisted with the Workspace.
     """
     name: str
     project_name: str
-    created_at: datetime = field(default_factory=datetime.utcnow)
+    project_root: Path | None = None
+    created_at: datetime = field(default_factory=_utc_now)
     active_sprint: Optional[str] = None
     version: str = "0.2.0"
+    completed_sprints: list[str] = field(default_factory=list)
+    current_job: Optional[str] = None
+    validation_status: Optional[str] = None
+    settings: WorkspaceSettings = field(default_factory=WorkspaceSettings)
+    history: WorkspaceHistory = field(default_factory=WorkspaceHistory)
+    checkpoints: WorkspaceCheckpoints = field(
+        default_factory=WorkspaceCheckpoints
+    )
