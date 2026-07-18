@@ -4,6 +4,7 @@ from .association import (
     associate_project,
 )
 from .checkpoint import WorkspaceCheckpoint, WorkspaceCheckpoints
+from .create import create_workspace
 from .history import (
     HistoryEntry,
     RecordHistoryJob,
@@ -54,6 +55,7 @@ __all__ = [
     "WorkspaceSettings",
     "ProjectValidationResult",
     "associate_project",
+    "create_workspace",
     "load_workspace",
     "recover_workspace",
     "record_history",

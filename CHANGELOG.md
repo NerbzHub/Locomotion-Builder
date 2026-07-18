@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 — Usable Engineering Workflow
+
+### Added
+- Public CLI workflows for project registration and inspection, Workspace association and checkpoints, Book analysis, construction status and progression, prompt generation and reviewed export, and final validation
+- Persistent Workspace event history for project, Sprint, and prompt workflow actions
+- End-to-end command-line regression coverage for a registered project and engineering Book
+
+### Changed
+- Default Workspace and application release versions now report 1.1.0
+- Documentation now includes a complete local engineering workflow walkthrough
+
+### Validation
+- End-to-end command workflow validation passed
+
 ## 0.5.0 — Construction Manager
 
 ### Added

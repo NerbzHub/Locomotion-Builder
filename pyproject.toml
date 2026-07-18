@@ -1,4 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name='locomotion-builder'
-version='1.0.0'
-requires-python='>=3.10'
+name = "locomotion-builder"
+version = "1.1.0"
+description = "Deterministic engineering orchestration for recoverable software construction."
+requires-python = ">=3.10"
+
+[project.scripts]
+locomotion-builder = "builder.main:main"
+
+[tool.setuptools.packages.find]
+include = ["builder*"]

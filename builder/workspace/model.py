@@ -25,7 +25,7 @@ class Workspace:
     project_root: Path | None = None
     created_at: datetime = field(default_factory=_utc_now)
     active_sprint: Optional[str] = None
-    version: str = "0.2.0"
+    version: str = "1.1.0"
     completed_sprints: list[str] = field(default_factory=list)
     current_job: Optional[str] = None
     validation_status: Optional[str] = None
